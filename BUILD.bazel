@@ -4,7 +4,7 @@ load("//:config.bzl", "USERNAME")
 # Create a new OCI image with an added text file
 oci_image(
     name = "custom_image",
-    base = "@base_image",
+    base = "@new_base_image",
     tars = [
         ":add_text_file",
     ],
