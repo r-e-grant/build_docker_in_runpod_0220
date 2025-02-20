@@ -10,7 +10,7 @@ oci = use_extension("@rules_oci//oci:extensions.bzl", "oci")
 oci.pull(
     name = "new_base_image",
     digest = "sha256:b430af0b94e6bf865ceef4aed0db45b12f4da4b860b2ab9798ec2a4d80d3b77e",
-    image = "obeliks/comfyui",
+    image = "index.docker.io/obeliks/comfyui",
     platforms = [
         "linux/amd64",
     ],
