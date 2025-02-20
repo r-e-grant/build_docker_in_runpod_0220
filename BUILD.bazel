@@ -3,7 +3,7 @@ load("//:config.bzl", "USERNAME")
 
 # Create a new OCI image with an added text file
 oci_image(
-    name = "custom_image",
+    name = "comfyui_0220_1226",
     base = "@new_base_image",
     tars = [
         ":add_text_file",
@@ -19,8 +19,8 @@ genrule(
 )
 
 oci_push(
-    name = "push_custom_image",
-    image = ":custom_image",
-    repository = "index.docker.io/{}/custom_image".format(USERNAME),
+    name = "push_comfyui_0220_1226",
+    image = ":comfyui_0220_1226",
+    repository = "index.docker.io/{}/comfyui_0220_1226".format(USERNAME),
     remote_tags = ["latest"]
 )
