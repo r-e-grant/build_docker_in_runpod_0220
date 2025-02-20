@@ -1,0 +1,25 @@
+module(
+    name = "build_docker_in_runpod_0220",
+    version = "1.0",
+)
+
+bazel_dep(name = "rules_oci", version = "2.0.0-alpha2")
+
+oci = use_extension("@rules_oci//oci:extensions.bzl", "oci")
+
+oci.pull(
+    name = "base_image",
+    digest = "sha256:bf2d42c1240bb8d3e87cce9b2a16c0e18c691e2e8b6b55f0063b55696292d6d0",
+    image = "index.docker.io/runpod/pytorch",
+    platforms = [
+        "linux/amd64",
+        "linux/arm64",
+    ],
+)
+
+use_repo(
+    oci,
+    "base_image",
+    "base_image_linux_amd64",
+    "base_image_linux_arm64",
+)
